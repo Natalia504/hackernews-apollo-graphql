@@ -9,6 +9,7 @@ import {
   createHttpLink,
   InMemoryCache,
 } from "@apollo/client";
+import { BrowserRouter } from "react-router-dom";
 
 // We create the httpLink that will connect our ApolloClient instance with the GraphQL API.
 // The GraphQL server will be running on http://localhost:4000.
@@ -26,9 +27,11 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 // The App is wrapped with the higher-order component ApolloProvider that gets passed the client as a prop.
 root.render(
-  <ApolloProvider client={client}>
-    <App />
-  </ApolloProvider>
+  <BrowserRouter>
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
